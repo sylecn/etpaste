@@ -7,6 +7,6 @@ paste {{ paste_id }}
 {% endblock head %}
 {% block body %}
 <h3>paste {{ paste_id }}</h3>
-<div class="row">language: {{ paste.lang }}</div>
+<div class="row">Syntax: {{ paste.lang }}</div>
 {{ paste.html|safe }}
 {% endblock body %}

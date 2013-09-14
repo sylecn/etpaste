@@ -1,0 +1,68 @@
+
+Archived entries from file /home/sylecn/projects/etpaste/operational
+
+
+* DONE 2013-09-14 integrate bootstrap early.
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2013-09-14 Sat 19:11
+  :ARCHIVE_FILE: ~/projects/etpaste/operational
+  :ARCHIVE_OLPATH: current
+  :ARCHIVE_CATEGORY: operational
+  :ARCHIVE_TODO: DONE
+  :ARCHIVE_ITAGS: entry
+  :END:
+
+* DONE 2013-09-14 how can I render a text with HTML syntax highlighting?
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2013-09-14 Sat 19:11
+  :ARCHIVE_FILE: ~/projects/etpaste/operational
+  :ARCHIVE_OLPATH: current
+  :ARCHIVE_CATEGORY: operational
+  :ARCHIVE_TODO: DONE
+  :ARCHIVE_ITAGS: entry
+  :END:
+  - read the pygments document.
+
+    import pygments
+    import pygments.lexers
+    import pygments.formatters
+    pygments.highlight("import foo", pygments.lexers.get_lexer_by_name("py"), pygments.formatters.html.HtmlFormatter())
+
+    works. where are the built-in css for it?
+
+    pygments.formatters.html.HtmlFormatter.get_style_defs
+
+* 2013-09-14 add js code to autodetect lang type in input box.	    :wontfix:
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2013-09-14 Sat 19:57
+  :ARCHIVE_FILE: ~/projects/etpaste/operational
+  :ARCHIVE_OLPATH: current
+  :ARCHIVE_CATEGORY: operational
+  :ARCHIVE_ITAGS: entry
+  :END:
+  If type is not set or set to text, auto guess it.
+
+  No. Since guess correct rate is very low, if no type info is given, just
+  use raw text. I will not use any guess result.
+
+* DONE 2013-09-14 can I guess the language used in the text?
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2013-09-14 Sat 19:57
+  :ARCHIVE_FILE: ~/projects/etpaste/operational
+  :ARCHIVE_OLPATH: current
+  :ARCHIVE_CATEGORY: operational
+  :ARCHIVE_TODO: DONE
+  :ARCHIVE_ITAGS: entry
+  :END:
+  pygments.lexers.guess_lexer(_text)
+
+  guess is very weak.
+  normal python ==> pygments.lexers.NumPyLexer
+  org-mode text with explicit header => pygments.lexers.CLexer
+
+  write a page to guess the language.
+  /guess
+
+  guess is very weak. weaker than file command.
+
+  seems only work for text with shabang lines. Not practical at all.

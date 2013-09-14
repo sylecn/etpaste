@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# this file should be sourced, not exectued.
+
+# Usage: warn [message]
+# print the message to stderr
+warn() {
+	echo "$1" >/dev/stderr
+}
+
+# Usage: error [message] [error_code]
+# print the message to stderr and exit
+error() {
+	warn "$1"
+	exit "${2:-1}"
+}
+
+print_help_and_exit() {
+	echo "Usage: newx [DISPLAY]"
+	echo "start X on DISPLAY. newx use X as xinit server and /home/sylecn/.xinitrc as xinit client"
+	echo "Note: by default, in debian one can start x only in console. see /etc/X11/Xwrapper.config"
+	exit 1
+}
+
+# main()
+if [ "$1" = "--help" ]; then
+	print_help_and_exit
+fi
+
+if [ "$1" ]; then
+	display=${1#:}
+else
+	i=0
+	while [ -e /tmp/.X${i}-lock ]
+	do
+		i=$((i + 1))
+	done
+	display=$i
+fi
+# exec xinit /usr/bin/emacs -Q -display :$display -- /usr/bin/X :$display -nolisten tcp
+# skip global /etc/X11/xinit/xinitrc (in turn skip . /etc/X11/Xsession)
+exec xinit /bin/sh /home/sylecn/.xinitrc -- /usr/bin/X :$display -nolisten tcp
+# -dpi 120
