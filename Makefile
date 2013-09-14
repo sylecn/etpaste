@@ -6,4 +6,6 @@ start-dev-server:
 	$(PYTHON) etpaste/main.py
 bootstrap:
 	./utils/bootstrap
-.PHONY: default bootstrap run start-dev-server
+TAGS:
+	etags -R --exclude='etpaste/static/jquery/*' --exclude='etpaste/static/bootstrap/*' etpaste utils
+.PHONY: default bootstrap run start-dev-server TAGS

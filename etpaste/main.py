@@ -5,19 +5,19 @@
 main entrance to the web app
 """
 
+import pygments
+
 from flask import (Flask, render_template, url_for,
                    request,
-                   redirect)
-
-from jinja2 import Environment
-
-from jinja2_highlight.highlight import HighlightExtension
+                   redirect, abort)
 
 from etpaste import vdb
 
+from etpaste.utils import highlight_text
+
 
 app = Flask(__name__)
-app.jinja_env.add_extension(HighlightExtension)
+app.jinja_options = {"trim_blocks": True}
 
 
 @app.route("/")
@@ -47,6 +47,9 @@ def show_paste(paste_id):
     except ValueError as e:
         return "Bad paste_id."
     p = vdb.get_paste(paste_id)
+    if not p['ok']:
+        abort(404)
+    p['html'] = highlight_text(p['content'], p['lang'])
     return render_template('show_paste.html', paste=p, paste_id=paste_id)
 
 

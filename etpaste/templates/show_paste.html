@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
+{% block title %}
+paste {{ paste_id }}
+{% endblock title %}
+{% block head %}
+<link type="text/css" rel="stylesheet" href="/static/pygments/css/pygments.css" />
+{% endblock head %}
 {% block body %}
 <h3>paste {{ paste_id }}</h3>
-<label for="lang">language:</label><label>{{ paste.lang }}</label>
-{% highlight "python" %}
-  {{ paste.content }}
-{% endhighlight %}
-{% endblock %}
+<div class="row">language: {{ paste.lang }}</div>
+{{ paste.html|safe }}
+{% endblock body %}

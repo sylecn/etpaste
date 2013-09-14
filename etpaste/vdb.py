@@ -5,6 +5,9 @@
 vdb
 """
 
+from .utils import error, ok
+
+
 db = []
 
 
@@ -16,6 +19,6 @@ def new_paste(lang, content):
 
 def get_paste(paste_id):
     try:
-        return db[paste_id]
+        return ok(**db[paste_id])
     except IndexError as e:
-        return {}
+        return error(msg="not found")
