@@ -1,0 +1,16 @@
+* COMMENT -*- mode: org -*-
+  #+Date: 2013-09-14
+  Time-stamp: <2013-09-14>
+  #+STARTUP: content
+* later								      :entry:
+** 2013-09-14 create a command to build all contained deb package.
+   use some standard debian dirs.
+   /etc/etpaste/etpaste.conf
+   /etc/init.d/etpaste
+   /etc/logrotate.d/etpaste
+   /var/log/etpaste/
+   /opt/etpaste/
+* current							      :entry:
+** 2013-09-14 can I guess the language used in the text?
+** 2013-09-14 how can I render a text with HTML syntax highlighting?
+** 2013-09-14 integrate bootstrap early.

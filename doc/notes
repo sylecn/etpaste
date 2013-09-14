@@ -1,0 +1,27 @@
+* COMMENT -*- mode: org -*-
+#+Date: 2013-08-22
+Time-stamp: <2013-08-22>
+
+* 
+* 2013-08-22 how to highlight code using jinja2-highlight
+  {% highlight 'language' %} code-goes-here {% endhighlight %}
+
+  the language should be a short name supported by pygments:
+  Pygments — Python syntax highlighter
+  http://pygments.org/docs/lexers/
+  examples:
+  - text
+  - java, jsp, 
+  - py3, pycon, py, pytb, django (or jinja), 
+  - irb, rb, erb, 
+  - erl
+  - bash, sh
+  - hs, lhs
+  - apache, nginx, puppet, squid, makefile
+  - ini, properties, yaml, json, xml
+  - tex, rst, moin (or trac-wiki), bbcode, 
+  - vim
+  - html, js, css, coffee-script, ts, haml, sass, scss, 
+  - diff
+  - sql, mysql, postgres,
+  - shell-session

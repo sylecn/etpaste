@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+Flask-WTF
+uwsgi
+Pygments
+jinja2-highlight

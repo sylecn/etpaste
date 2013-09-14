@@ -1,0 +1,10 @@
+* COMMENT -*- mode: org -*-
+#+Date: 2013-08-22
+Time-stamp: <2013-08-22>
+
+* project dev name will be etpaste, which means eternal pastebin server.
+  I don't like that the existing paste servers are not maintained. In this
+  app, I will setup a build server and do Continuous Build Test against new
+  language versions and library versions.
+
+  I want it maintained and tested. Not discarded in dust.
