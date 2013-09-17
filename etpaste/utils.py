@@ -11,7 +11,11 @@ import pygments.formatters
 import pygments.util
 
 
-HTML_FORMATTER = pygments.formatters.html.HtmlFormatter()
+HTML_FORMATTER = pygments.formatters.html.HtmlFormatter(
+    linenos='table',
+    anchorlinenos=True,
+    lineanchors='line'
+)
 
 
 def highlight_text(text, lang):
