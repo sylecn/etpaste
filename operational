@@ -1,7 +1,22 @@
 * COMMENT -*- mode: org -*-
   #+Date: 2013-09-14
-  Time-stamp: <2013-09-17>
+  Time-stamp: <2013-09-18>
   #+STARTUP: content
+* current							      :entry:
+** 2013-09-17 integrate DISQUS commenting system.
+** 2013-09-17 add an about page.
+** 2013-09-17 add homepage.
+   show recent 10 pastes in left hand side.
+   show add new paste in right hand side.
+** 2013-09-18 could try mongodb as db engine.
+   mongodb is an in-memory db with optional persistence.
+   This is a good match for a small pastebin service.
+
+   This project is simple enough.
+   Can still test my ability to write some map-reduce code.
+   for example, list number of pastes in each language.
+   total pastes in the system.
+   total paste per month.
 * later								      :entry:
 ** 2013-09-14 create a command to build all-in-one deb package.
    Only depends on python 2.6, 2.7 or >=3.3, absolutely no other
@@ -13,7 +28,23 @@
    /etc/logrotate.d/etpaste
    /var/log/etpaste/
    /opt/etpaste/
-* current							      :entry:
-** 2013-09-17 integrate DISQUS commenting system.
-** 2013-09-17 add an about page.
-** 2013-09-17 add homepage.
+** 2013-09-18 try an full text search engine sometime.
+   search all pastes.
+** 2013-09-18 write a shell client and an emacs client using REST api.
+   POST
+   /paste
+   lang=
+   content=
+   expire=
+
+   GET
+   /paste/<id>?format=raw
+   /paste/<id>?format=html
+
+   - shell client:
+     etpaste --lang=<lang> --expire=<expire> filename
+   - emacs client:
+     M-x etpaste
+     paste code in an active region or current buffer, use major-mode to set
+     lang type. expire is configurable via `etpaste-default-expire'.
+     returned link is killed in kill ring.
