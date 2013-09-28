@@ -24,6 +24,7 @@ main entrance to the web app
 """
 
 import pygments
+import arrow
 
 from flask import (Flask, render_template, url_for,
                    request,
@@ -46,7 +47,8 @@ def inject_version():
 
 @app.route("/")
 def home():
-    return render_template('home.html')
+    recent_pastes = vdb.get_recent_paste()
+    return render_template('home.html', recent_pastes=recent_pastes)
 
 
 @app.route("/guess")

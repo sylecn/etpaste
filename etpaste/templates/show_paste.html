@@ -7,6 +7,7 @@ paste {{ paste_id }}
 {% endblock head %}
 {% block body %}
 <h3>paste {{ paste_id }}</h3>
-<div class="row">Syntax: {{ paste.lang }}</div>
+<p>post time: <a ref="#" title="{{ paste.post_time.to('local').format('YYYY-MM-DD HH:mm:ss') }}">{{ paste.post_time.humanize() }}</a></p>
+<p>Syntax: {{ paste.lang }}</p>
 {{ paste.html|safe }}
 {% endblock body %}

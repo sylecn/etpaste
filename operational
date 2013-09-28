@@ -5,11 +5,14 @@
 * current							      :entry:
 ** 2013-09-17 integrate DISQUS commenting system.
 ** 2013-09-17 add an about page.
-** 2013-09-17 add homepage.
+** DONE 2013-09-17 add homepage.
    show recent 10 pastes in left hand side.
    show add new paste in right hand side.
 
    show etpaste version at bottom.
+
+   - in order to know recent pastes, each paste should have a post date with
+     it.
 ** 2013-09-18 could try mongodb as db engine.
    mongodb is an in-memory db with optional persistence.
    This is a good match for a small pastebin service.
@@ -19,7 +22,8 @@
    for example, list number of pastes in each language.
    total pastes in the system.
    total paste per month.
-** 2013-09-28 add a copy button
+** 2013-09-28 add a copy button in paste/<id> view
+** 2013-09-28 fix bug001 in doc/bugs, html escape related.
 * later								      :entry:
 ** 2013-09-14 create a command to build all-in-one deb package.
    Only depends on python 2.6, 2.7 or >=3.3, absolutely no other

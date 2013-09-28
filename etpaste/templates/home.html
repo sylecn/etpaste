@@ -8,12 +8,11 @@ etpaste - eternal pastebin service
 {% block body %}
 <div id="recent-posts" class="row">
   <div class="span5">
-    <h3>Recent Posts</h3>
+    <h3>Recent Pastes</h3>
     <ul>
-      <li>post 1</li>
-      <li>post 2</li>
-      <li>post 3</li>
-      <li>post 4</li>
+      {% for p in recent_pastes %}
+      <li><a href="{{ url_for('show_paste', paste_id=p.id) }}">paste {{ p.id }}, posted {{ p.post_time.humanize() }}</a></li>
+      {% endfor %}
     </ul>
   </div>
   <div class="span4">

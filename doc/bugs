@@ -1,0 +1,43 @@
+* COMMENT -*- mode: org -*-
+#+Date: 2013-09-28
+Time-stamp: <2013-09-28>
+
+* a simple bug list based on emacs org-mode
+* new								      :entry:
+** 2013-09-28 show paste for this html text, the format is very wrong. :bug001:
+Each line has different height and there are empty gaps on first and last few
+lines.
+
+How to reproduce:
+/paste/new
+type: html
+content:
+#+BEGIN_SRC text
+  {% extends "layout.html" %}
+  {% block title %}
+  etpaste - eternal pastebin service
+  {% endblock title %}
+  {% block head %}
+  <link type="text/css" rel="stylesheet" href="/static/etpaste/css/new_paste.css" />
+  {% endblock %}
+  {% block body %}
+  <div id="recent-posts" class="row">
+    <div class="span5">
+      <h3>Recent Pastes</h3>
+      <ul>
+        {% for p in recent_pastes %}
+        <li><a href="{{ url_for('show_paste', paste_id=p.id) }}">paste {{ p.id }}, posted {{ p.post_time.humanize() }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="span4">
+      {% include "snippet/new-paste.html" %}
+    </div>
+  </div>
+  {% endblock %}
+#+END_SRC
+
+- 2013-09-28 seems HTML is not escaped right in the <pre>.
+
+* resolved							      :entry:
+* wontfix							      :entry:
