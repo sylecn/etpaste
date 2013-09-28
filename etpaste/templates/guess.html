@@ -6,12 +6,14 @@ Guess programming language in text
 <link type="text/css" rel="stylesheet" href="/static/etpaste/css/new_paste.css" />
 {% endblock head %}
 {% block body %}
+<h3>Guess programming language in text</h3>
 <form method="post" id="guess" action="/guess">
   <label id="result" for="paste-content">Paste in some text below</label>
   <textarea name="content" id="paste-content"
 	    class="paste-content" rows="18" cols="80" ></textarea>
   <br />
   <button type="submit" class="btn btn-primary">Test</button>
+  <button type="reset" name="reset" id="reset" class="btn">Clear</button>
 </form>
 {% endblock body %}
 {% block js %}

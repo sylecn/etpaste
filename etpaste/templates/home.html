@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+etpaste - eternal pastebin service
+{% endblock title %}
+{% block head %}
+<link type="text/css" rel="stylesheet" href="/static/etpaste/css/new_paste.css" />
+{% endblock %}
+{% block body %}
+<div id="recent-posts" class="row">
+  <div class="span5">
+    <h3>Recent Posts</h3>
+    <ul>
+      <li>post 1</li>
+      <li>post 2</li>
+      <li>post 3</li>
+      <li>post 4</li>
+    </ul>
+  </div>
+  <div class="span4">
+    {% include "snippet/new-paste.html" %}
+  </div>
+</div>
+{% endblock %}

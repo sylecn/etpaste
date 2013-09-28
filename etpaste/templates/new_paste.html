@@ -6,23 +6,5 @@ Create new paste
 <link type="text/css" rel="stylesheet" href="/static/etpaste/css/new_paste.css" />
 {% endblock %}
 {% block body %}
-<h3>Create a new paste</h3>
-
-<form method="post" id="new-paste" action="/paste" class="form-vertical" >
-  <select id="lang" name="lang">
-    <option>text
-    <option>python
-    <option>sh
-    <option>pycon
-    <option>html
-  </select>
-  <br />
-  <textarea name="content" id="paste-content"
-	    class="paste-content" rows="18" cols="80" ></textarea>
-  <br />
-  <button type="submit" name="submit"
-	  id="submit" class="btn btn-primary">Submit</button>
-  <button type="reset" name="reset"
-	  id="reset" class="btn">Clear</button>
-</form>
+{% include "snippet/new-paste.html" %}
 {% endblock %}

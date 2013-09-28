@@ -1,5 +1,23 @@
 #!/usr/bin/env python
 # coding=utf-8
+#
+# Copyright (C) 2013  Yuanle Song <sylecn@gmail.com>
+#
+# This file is part of etpaste.
+#
+# etpaste is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# etpaste is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with etpaste.  If not, see <http://www.gnu.org/licenses/>.
+#
 
 """
 main entrance to the web app
@@ -14,15 +32,21 @@ from flask import (Flask, render_template, url_for,
 from etpaste import vdb
 
 from etpaste.utils import highlight_text, guess_language
+from etpaste.version import VERSION
 
 
 app = Flask(__name__)
 app.jinja_options = {"trim_blocks": True}
 
 
+@app.context_processor
+def inject_version():
+    return {'VERSION': VERSION}
+
+
 @app.route("/")
 def home():
-    return redirect(url_for("new_paste"))
+    return render_template('home.html')
 
 
 @app.route("/guess")
